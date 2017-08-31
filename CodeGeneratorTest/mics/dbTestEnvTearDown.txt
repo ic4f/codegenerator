@@ -1,0 +1,14 @@
+IF OBJECT_ID('test_Record1Record2') IS NOT NULL
+	DROP TABLE test_Record1Record2
+
+IF OBJECT_ID('test_Record1') IS NOT NULL
+	DROP TABLE test_Record1
+
+IF OBJECT_ID('test_Record2') IS NOT NULL
+	DROP TABLE test_Record2
+
+IF OBJECT_ID('test_Record1Cat') IS NOT NULL
+	DROP TABLE test_Record1Cat
+	
+IF OBJECT_ID('test_Record3') IS NOT NULL
+	DROP TABLE test_Record3	

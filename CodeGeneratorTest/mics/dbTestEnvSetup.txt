@@ -1,0 +1,72 @@
+--Creates the following tableobjects:
+--	test_Record1
+--	test_Record1Cat
+--	test_Record2
+--	test_Record1Record2
+
+IF OBJECT_ID('test_Record1Record2') IS NOT NULL
+	DROP TABLE test_Record1Record2
+
+IF OBJECT_ID('test_Record1') IS NOT NULL
+	DROP TABLE test_Record1
+
+IF OBJECT_ID('test_Record2') IS NOT NULL
+	DROP TABLE test_Record2
+
+IF OBJECT_ID('test_Record1Cat') IS NOT NULL
+	DROP TABLE test_Record1Cat
+
+CREATE TABLE dbo.test_Record1Cat
+(
+	Id int IDENTITY,
+	CONSTRAINT PK_Record1Cat PRIMARY KEY (Id)
+)
+
+CREATE TABLE dbo.test_Record1
+(
+	Id int IDENTITY,
+	Record1CatId int NOT NULL,
+	A1 bigint NOT NULL,
+	A2 binary(8) NOT NULL,
+	A3 bit NOT NULL,
+	A4 char(3) NOT NULL,
+	A5 datetime NOT NULL,
+	A6 decimal(5,2) NOT NULL,
+	A7 float NOT NULL,
+	A8 image NOT NULL,
+	A9 int NOT NULL,
+	A10 money NOT NULL,
+	A11 nchar(3) NOT NULL,
+	A12 ntext NOT NULL,
+	A13 numeric(4,3)NOT NULL,
+	A14 nvarchar(3) NOT NULL,
+	A15 real NOT NULL,
+	A16 smalldatetime NOT NULL,
+	A17 smallint NOT NULL,
+	A18 smallmoney NOT NULL,
+	A19 text NOT NULL,
+	A20 timestamp NOT NULL,
+	A21 tinyint NOT NULL,
+	A22 uniqueidentifier NOT NULL,
+	A23 varbinary(8) NOT NULL,
+	A24 varchar(3),
+
+	CONSTRAINT PK_Record1_Id PRIMARY KEY (Id),
+	CONSTRAINT FK_Record1_Record1CatId FOREIGN KEY (Record1CatId) REFERENCES test_Record1Cat(Id), 
+	CONSTRAINT UQ_Record1_a4 UNIQUE (A4)
+)
+
+CREATE TABLE dbo.test_Record2
+(
+	Id int identity,
+	CONSTRAINT PK_Record2 PRIMARY KEY (Id)
+)
+
+CREATE TABLE dbo.test_Record1Record2
+(
+	Record1Id int,
+	Record2Id int,
+	CONSTRAINT PK_Record1Record2 PRIMARY KEY (Record1Id, Record2Id),
+	CONSTRAINT FK_Record1Record2_Record1Id FOREIGN KEY (Record1Id) REFERENCES test_Record1(Id), 
+	CONSTRAINT FK_Record1Record2_Record2Id FOREIGN KEY (Record2Id) REFERENCES test_Record2(Id)
+)

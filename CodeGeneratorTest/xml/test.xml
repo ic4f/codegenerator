@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+                  
+<application 
+	name="uni6" revised="6/25/2006"
+	xmlns="codegenschema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="myschema file:schema.xsd">
+
+	<namespace>
+		<name>Data</name>
+				
+		<class>
+			<name>User</name>
+			<type>record</type>			
+			<table>
+				<name>a_User</name>				
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>
+				<field>
+					<name>Login</name>
+					<datatype>varchar(50)</datatype>
+					<unique>true</unique>
+				</field>	
+				<field>
+					<name>Password</name>
+					<datatype>varbinary(16)</datatype>
+					<includeinset>false</includeinset>	
+					<encrypted>true</encrypted>
+				</field>				
+				<field>
+					<name>FirstName</name>					
+					<datatype>varchar(25)</datatype>
+					<display>first name</display>
+				</field>										
+				<field>
+					<name>Created</name>
+					<datatype>datetime</datatype>
+					<readonlytype>created</readonlytype>
+				</field>		
+			</table>			
+			
+			<sproc>
+				<name>ValidateUser</name>
+				<returntype>int</returntype>
+				<param>
+					<name>Login</name>
+					<datatype>varchar(50)</datatype>
+				</param>
+				<param>
+					<name>Password</name>
+					<datatype>varbinary(16)</datatype>
+					<encrypted>true</encrypted>
+				</param>						
+			</sproc>			
+			<sproc>
+				<name>TestSproc1</name>
+				<returntype>int</returntype>
+				<param>
+					<name>Login1</name>
+					<datatype>varchar(50)</datatype>
+				</param>
+				<param>
+					<name>Password1</name>
+					<datatype>varchar(4)</datatype>
+				</param>						
+			</sproc>					
+			<sproc>
+				<name>TestSproc2</name>
+				<returntype>DataSet</returntype>
+				<param>
+					<name>Id</name>
+					<datatype>int</datatype>
+				</param>
+				<param>
+					<name>Keyword</name>
+					<datatype>varchar(50)</datatype>
+				</param>						
+			</sproc>								
+		</class>
+		
+	
+		<class>		
+			<name>Role</name>			
+			<type>record</type>						
+			<table>
+				<name>a_Role</name>
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>
+				<field>
+					<name>Description</name>
+					<datatype>varchar(25)</datatype>
+					<unique>true</unique>
+				</field>	
+				<field>
+					<name>Rank</name>
+					<datatype>smallint</datatype>
+				</field>			
+			</table>
+		</class>		
+				
+				
+		<class>		
+			<name>UserRoles</name>			
+			<type>link</type>							
+			<table>
+				<name>a_UserRoles</name>			
+				<field>
+					<name>UserId</name>
+					<datatype>int</datatype>	
+					<pkey>true</pkey>		
+					<fkey>a_User(Id)</fkey>
+				</field>	
+				<field>
+					<name>RoleId</name>
+					<datatype>int</datatype>
+					<pkey>true</pkey>
+					<fkey>a_Role(Id)</fkey>
+				</field>			
+			</table>				
+		</class>		
+				
+		
+		<class>		
+			<name>Account</name>			
+			<type>readonly</type>							
+			<table>
+				<name>vw_Uni6Accounts</name>
+				<external>true</external>
+				<field>
+					<name>Id</name>
+					<datatype>varchar(21)</datatype>
+					<pkey>true</pkey>
+				</field>		
+				<field>
+					<name>AccountType</name>
+					<datatype>char(1)</datatype>
+				</field>							
+			</table>			
+		</class>		
+				
+	
+		<class>		
+			<name>Permission</name>			
+			<type>readonly</type>								
+			<table>
+				<name>a_Permission</name>							
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>
+				<field>
+					<name>CategoryId</name>
+					<datatype>int</datatype>
+				</field>			
+				<field>
+					<name>Description</name>
+					<datatype>varchar(100)</datatype>
+					<unique>true</unique>
+				</field>	
+				<field>
+					<name>Code</name>
+					<datatype>varchar(100)</datatype>
+					<unique>true</unique>
+				</field>			
+				<field>
+					<name>Rank</name>
+					<datatype>smallint</datatype>
+				</field>			
+			</table>			
+			<sproc>
+				<name>GetPermissionCodesByUser</name>
+				<returntype>ArrayList</returntype>
+				<param>
+					<name>UserId</name>
+					<datatype>int</datatype>
+				</param>					
+			</sproc>			
+		</class>		
+						
+	</namespace>
+	
+	
+	<namespace>
+		<name>OtherData</name>
+		
+		<class>		
+			<name>Email</name>			
+			<type>final</type>					
+			<table>
+				<name>a_Email</name>								
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>
+				<field>
+					<name>Subject</name>
+					<datatype>varchar(250)</datatype>
+				</field>			
+				<field>
+					<name>Message</name>
+					<datatype>varchar(4000)</datatype>
+					<includeinset>false</includeinset>	
+				</field>		
+				<field>
+					<name>Sent</name>
+					<datatype>datetime</datatype>
+				</field>		
+				<field>
+					<name>SentBy</name>
+					<datatype>numeric(10,2)</datatype>
+				</field>										
+			</table>				
+		</class>		
+			
+	</namespace>
+	
+</application>

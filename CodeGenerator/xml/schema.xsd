@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- namespace, class, field, additionalField, returnfield, additionalReturnField, additionalSproc 
+	names must start with a capital letter - if not, they will be capitalised by the system -->
+<xs:schema id="test1" targetNamespace="codegenschema" elementFormDefault="qualified" xmlns="codegenschema"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="application">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="namespace" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string" />
+							<xs:element name="class" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string" />
+										<xs:element name="type">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="record" />
+													<!-- all operations allowed -->
+													<xs:enumeration value="link" />
+													<!-- operations on link table -->
+													<xs:enumeration value="readonly" />
+													<!-- no create/update/delete -->
+													<xs:enumeration value="final" />
+													<!-- no update -->
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="table">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="name" type="xs:string" />
+													<xs:element name="external" type="xs:boolean" minOccurs="0" />
+													<!-- fields -->
+													<xs:element name="field" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:all>
+																<xs:element name="name" type="xs:string" />
+																<xs:element name="sqldatatype" type="xs:string" />
+																<xs:element name="identity" type="xs:boolean" minOccurs="0" />
+																<xs:element name="primarykey" type="xs:boolean" minOccurs="0" />
+																<xs:element name="foreignkey" minOccurs="0" maxOccurs="1">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="reftable" type="xs:string" />
+																			<xs:element name="reffield" type="xs:string" />
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="unique" type="xs:boolean" minOccurs="0" />
+																<!-- encryption allowed only when datatype = binary/varbinary with length >= 8 -->
+																<xs:element name="encrypted" type="xs:boolean" minOccurs="0" />
+																<xs:element name="display" type="xs:string" minOccurs="0" />
+																<xs:element name="excludefromtable" type="xs:boolean" minOccurs="0" />
+																<xs:element name="includewithparenttable" type="xs:boolean" minOccurs="0" />
+																<xs:element name="includeinlist" type="xs:boolean" minOccurs="0" />
+																<xs:element name="defaultsort" type="xs:boolean" minOccurs="0" />
+																<xs:element name="readonlytype">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="created" />
+																			<xs:enumeration value="modified" />
+																			<xs:enumeration value="timestamp" />
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:all>
+														</xs:complexType>
+													</xs:element>
+													<!-- additionalFields -->
+													<xs:element name="additionalfield" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:all>
+																<xs:element name="name" type="xs:string" />
+																<xs:element name="sqldatatype" type="xs:string" />
+																<xs:element name="sql" type="xs:string" />
+																<xs:element name="sortexpression" type="xs:string" />
+																<xs:element name="display" type="xs:string" minOccurs="0" />
+																<xs:element name="excludefromtable" type="xs:boolean" minOccurs="0" />
+																<xs:element name="includewithparenttable" type="xs:boolean" minOccurs="0" />
+																<xs:element name="includeinlist" type="xs:boolean" minOccurs="0" />
+																<xs:element name="defaultsort" type="xs:boolean" minOccurs="0" />																
+															</xs:all>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<!-- additionalSprocs -->
+										<xs:element name="additionalsproc" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+													<xs:element name="name" type="xs:string" />
+													<xs:element name="param" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="name" type="xs:string" />
+																<xs:element name="csdatatype" type="xs:string" />
+																<xs:element name="encrypted" type="xs:boolean" minOccurs="0" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="returntype" type="xs:string" />
+													<!-- c# syntax or "generate" -->
+													<xs:element name="returnfield" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType mixed="true">
+															<!-- either specify all 4, or name must refer to an existing table field -->
+															<xs:all>
+																<xs:element name="name" type="xs:string" minOccurs="0" />
+																<xs:element name="csdatatype" type="xs:string" minOccurs="0" />
+																<xs:element name="sortexpression" type="xs:string" minOccurs="0" />
+																<xs:element name="display" type="xs:string" minOccurs="0" />
+															</xs:all>
+														</xs:complexType>
+													</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" />
+			<xs:attribute name="revised" type="xs:date" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

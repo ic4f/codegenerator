@@ -1,0 +1,6 @@
+
+IF OBJECT_ID('test_Record2') IS NOT NULL
+	DROP TABLE test_Record2
+	
+IF OBJECT_ID('test_Record3') IS NOT NULL
+	DROP TABLE test_Record3		

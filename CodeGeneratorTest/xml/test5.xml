@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+                  
+<application 
+	name="uni6" revised="6/25/2006"
+	xmlns="codegenschema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="myschema file:schema.xsd">
+
+	<namespace>
+		<name>Data</name>
+				
+		<class>
+			<name>Record3</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record3</name>				
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>				
+			</table>	
+		</class>		
+						
+		<class>
+			<name>Record1Cat</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record1Cat</name>				
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>				
+			</table>	
+		</class>
+		
+		<class>
+			<name>Record1</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record1</name>				
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>				
+				<field>
+					<name>Record1CatId</name>
+					<datatype>int</datatype>					
+					<fkey>test_Record1Cat(Id)</fkey>
+				</field>	
+				<field> <!-- added filed -->
+					<name>new1</name>
+					<datatype>int</datatype>
+					<default>0</default>
+				</field>					
+				<field>
+					<name>a1</name>
+					<datatype>bigint</datatype>
+					<default>123</default>
+				</field>	
+				<field> <!-- added filed -->
+					<name>new2</name>
+					<datatype>int</datatype>
+					<default>0</default>
+				</field>							
+					<!-- deleted filed -->
+				<field>
+					<name>a3</name>
+					<datatype>bit</datatype>
+					<default>1</default>
+				</field>																
+				<field>
+					<name>a4</name>
+					<datatype>varchar(3)</datatype><!-- modified field -->
+					<default>asx</default>
+					<unique>true</unique>
+				</field>		
+				<field>
+					<name>a5</name>
+					<datatype>datetime</datatype>
+					<default>12/31/1999</default>
+				</field>	
+				<field>
+					<name>a6</name>
+					<datatype>decimal(6,3)</datatype><!-- modified field -->
+					<default>345.32</default>
+				</field>		
+				<field>
+					<name>a7</name>
+					<datatype>float</datatype>
+					<default>556</default>
+				</field>			
+					<!-- deleted filed -->
+				<field>
+					<name>a9</name>
+					<datatype>bigint</datatype><!-- modified field -->
+					<default>123</default>
+				</field>	
+				<field>
+					<name>a10</name>
+					<datatype>money</datatype>
+					<default>34.55</default>
+				</field>	
+				<field>
+					<name>a11</name>
+					<datatype>nvarchar(4)</datatype><!-- modified field -->
+					<default>rrg</default>
+				</field>	
+				<field>
+					<name>a12</name>
+					<datatype>ntext</datatype>
+					<default>trytyrt</default>
+				</field>		
+				<field>
+					<name>a13</name>
+					<datatype>numeric(14,3)</datatype><!-- modified field -->
+					<default>5.436</default>
+				</field>	
+				<field>
+					<name>a14</name>
+					<datatype>nchar(3)</datatype><!-- modified field -->
+					<default>tre</default>
+				</field>		
+				<field>
+					<name>a15</name>
+					<datatype>real</datatype>
+					<default>45.55</default>
+				</field>		
+				<field>
+					<name>a16</name>
+					<datatype>datetime</datatype><!-- modified field -->
+					<default>11/30/1999</default>
+				</field>		
+				<field>
+					<name>a17</name>
+					<datatype>int</datatype><!-- modified field -->
+					<default>125</default>
+				</field>			
+				<field>
+					<name>a18</name>
+					<datatype>smallmoney</datatype>
+					<default>4.3</default>
+				</field>		
+				<field>
+					<name>a19</name>
+					<datatype>text</datatype>
+					<default>reyey</default>
+				</field>		
+				<field>
+					<name>a20</name>
+					<datatype>timestamp</datatype>
+				</field>		
+				<field>
+					<name>a21</name>
+					<datatype>tinyint</datatype>
+					<default>43</default>
+				</field>	
+				<field>
+					<name>a22</name>
+					<datatype>uniqueidentifier</datatype>
+				</field>	
+				<field>
+					<name>a23</name>
+					<datatype>varbinary(8)</datatype>
+				</field>
+				<field>
+					<name>a24</name>
+					<datatype>varchar(3)</datatype>
+					<default>rew</default>
+				</field>																																																																						
+			</table>				
+		</class>		
+
+		<class>
+			<name>Record2</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record2</name>				
+				<field>
+					<name>Id</name>
+					<datatype>int</datatype>
+					<identity>true</identity>
+					<pkey>true</pkey>
+				</field>	
+				<field> <!-- added field -->
+					<name>new1</name>
+					<datatype>int</datatype>
+				</field>							
+			</table>	
+		</class>		
+
+	</namespace>
+</application>

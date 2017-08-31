@@ -1,0 +1,14 @@
+test.xml
+	simplified realistic database for schemaloader testing only
+
+test2.xml
+	database identical to the one created by the script in mics/dbTestEnvSetup.txt for schemaloader and dbloader testing
+
+test3.xml
+	databaseComparer testing: +1 table
+	
+test4.xml
+	databaseComparer testing: -1 table
+	
+test5.xml
+	databaseComparer testing: +1-1 table

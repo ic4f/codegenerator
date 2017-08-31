@@ -1,0 +1,13 @@
+--Creates the following tableobjects:
+--	test_Record2
+
+
+IF OBJECT_ID('test_Record2') IS NOT NULL
+	DROP TABLE test_Record2
+
+
+CREATE TABLE dbo.test_Record2
+(
+	Id int identity
+)
+

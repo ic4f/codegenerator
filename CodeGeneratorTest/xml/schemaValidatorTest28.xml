@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!-- test foreign key - no primarykey or unique constraint on reffield -->
+<application 
+	name="schemaloadertest1" revised="8/3/2006"
+	xmlns="codegenschema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="myschema file:schema.xsd">
+
+	<namespace>
+		<name>Namespace1</name>						
+		<class>
+			<name>Class1</name>
+			<type>record</type>					
+			<table>
+				<name>Table1</name>	
+				<field>	
+					<name>Field1</name>			
+					<sqldatatype>int</sqldatatype>				
+					<primarykey>true</primarykey>			
+				</field>			
+				<field>	
+					<name>Field2</name>			
+					<sqldatatype>int</sqldatatype>	
+					<foreignkey>
+						<reftable>Table2</reftable>
+						<reffield>Field1</reffield>
+					</foreignkey>								
+				</field>											
+			</table>
+		</class>	
+		<class>
+			<name>Class2</name>
+			<type>record</type>					
+			<table>
+				<name>Table2</name>	
+				<field>	
+					<name>Field1</name>			
+					<sqldatatype>int</sqldatatype>				
+				</field>													
+			</table>
+		</class>				
+	</namespace>	
+
+</application>

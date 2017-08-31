@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+                  
+<application 
+	name="uni6" revised="6/25/2006"
+	xmlns="codegenschema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="myschema file:schema.xsd">
+
+	<namespace>
+		<name>Data</name>
+		
+		<class>
+			<name>Record3</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record3</name>				
+				<field>
+					<name>Id</name>
+					<sqldatatype>int</sqldatatype>
+					<identity>true</identity>
+					<primarykey>true</primarykey>
+				</field>				
+			</table>	
+		</class>		
+				
+		<class>
+			<name>Record1Cat</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record1Cat</name>				
+				<field>
+					<name>Id</name>
+					<sqldatatype>int</sqldatatype>
+					<identity>true</identity>
+					<primarykey>true</primarykey>					
+				</field>				
+			</table>	
+		</class>
+		
+		<class>
+			<name>Record1</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record1</name>				
+				<field>
+					<name>Id</name>
+					<sqldatatype>int</sqldatatype>
+					<identity>true</identity>
+					<primarykey>true</primarykey>
+				</field>				
+				<field>
+					<name>Record1CatId</name>
+					<sqldatatype>int</sqldatatype>					
+					<foreignkey>
+						<reftable>test_Record1Cat</reftable>
+						<reffield>Id</reffield>
+					</foreignkey>
+				</field>									
+				<field>
+					<name>a4</name>
+					<sqldatatype>char(3)</sqldatatype>
+				</field>		
+				<field>
+					<name>a5</name>
+					<sqldatatype>datetime</sqldatatype>
+				</field>	
+				<field>
+					<name>a6</name>
+					<sqldatatype>decimal(5,4)</sqldatatype><!-- modified -->
+					<!-- modified -->
+				</field>		
+				<field>
+					<name>a7</name>
+					<sqldatatype>float</sqldatatype>
+				</field>			
+				<field>
+					<name>a9</name>
+					<sqldatatype>int</sqldatatype>
+					<!-- modified -->
+					<unique>true</unique><!-- modified -->
+				</field>	
+				<field>
+					<name>a11</name>
+					<sqldatatype>nchar(300)</sqldatatype><!-- modified -->
+					<!-- modified -->
+				</field>									
+				<field>
+					<name>newa20</name>
+					<sqldatatype>timestamp</sqldatatype>
+				</field>								
+				<field>
+					<name>newcol</name>
+					<sqldatatype>ntext</sqldatatype>
+				</field>																																																																					
+			</table>				
+		</class>		
+
+		<class>
+			<name>Record2</name>
+			<type>record</type>			
+			<table>
+				<name>test_Record2</name>				
+				<field>
+					<name>Id</name>
+					<sqldatatype>int</sqldatatype>
+					<identity>true</identity>
+					<primarykey>true</primarykey>
+				</field>				
+			</table>	
+		</class>		
+
+
+
+	</namespace>
+</application>

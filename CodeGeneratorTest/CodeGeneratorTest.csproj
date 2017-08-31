@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{800CAF86-821F-4262-844D-DA2897694D9A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>CodeGeneratorTest</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CodeGeneratorTest</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeGenerator\CodeGenerator.csproj">
+      <Name>CodeGenerator</Name>
+      <Project>{E4CB7BA3-EF7E-4225-9594-A0F32E777762}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="nunit.framework">
+      <Name>nunit.framework</Name>
+      <HintPath>..\..\..\..\Program Files\NUnit 2.4.1\bin\nunit.framework.dll</HintPath>
+      <AssemblyFolderKey>hkcu\dn\nunit 2.4.1</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationLoaderTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\ApplicationObjectTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\ClassAddFieldObjectTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\ClassFieldObjectTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\ClassObjectTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\ClassTypeFactoryTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\NamespaceObjectTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\ReadonlyFieldTypeFactoryTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\SprocObjectTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\SprocParamObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Application\SprocReturnFieldObjectTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatabaseComparerTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatatypeHelperTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatatypeLoaderTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParserTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\AddFieldNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\AddSprocNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\ApplicationNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\ClassNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\FieldNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\NamespaceNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\ParamNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\SprocCustomReturnFieldNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\SprocReturnFieldNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ParseTree\TableNodeTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SchemaDatabaseLoaderTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SchemaDatabaseLoaderTest2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SchemaValidatorTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlDatabaseLoaderTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlDatabaseLoaderTest2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\DatabaseTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\DatatypeFactoryTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\DatatypeInstanceTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\DatatypesTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\DbEnvironmentBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\ForeignKeyConstraintTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\PrimaryKeyConstraintTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\TableFieldTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\TableTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sql\UniqueConstraintTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="mics\dbTestEnvSetup.txt" />
+    <Content Include="mics\dbTestEnvSetup2.txt" />
+    <Content Include="mics\dbTestEnvTearDown.txt" />
+    <Content Include="mics\dbTestEnvTearDown2.txt" />
+    <Content Include="xml\applicationLoaderTest.xml" />
+    <Content Include="xml\classfieldtest1.xml" />
+    <Content Include="xml\classfieldtest2.xml" />
+    <Content Include="xml\classfieldtest3.xml" />
+    <Content Include="xml\classfieldtest4.xml" />
+    <Content Include="xml\classfieldtest5.xml" />
+    <Content Include="xml\databaseComparerTest1.xml" />
+    <Content Include="xml\databaseComparerTest10.xml" />
+    <Content Include="xml\databaseComparerTest2.xml" />
+    <Content Include="xml\databaseComparerTest3.xml" />
+    <Content Include="xml\databaseComparerTest4.xml" />
+    <Content Include="xml\databaseComparerTest5.xml" />
+    <Content Include="xml\databaseComparerTest6.xml" />
+    <Content Include="xml\databaseComparerTest7.xml" />
+    <Content Include="xml\databaseComparerTest8.xml" />
+    <Content Include="xml\databaseComparerTest9.xml" />
+    <Content Include="xml\mainTest.xml" />
+    <Content Include="xml\parserTest1.xml" />
+    <Content Include="xml\schemaValidatorTest1.xml" />
+    <Content Include="xml\schemaValidatorTest10.xml" />
+    <Content Include="xml\schemaValidatorTest11.xml" />
+    <Content Include="xml\schemaValidatorTest12.xml" />
+    <Content Include="xml\schemaValidatorTest13.xml" />
+    <Content Include="xml\schemaValidatorTest14.xml" />
+    <Content Include="xml\schemaValidatorTest15.xml" />
+    <Content Include="xml\schemaValidatorTest16.xml" />
+    <Content Include="xml\schemaValidatorTest17.xml" />
+    <Content Include="xml\schemaValidatorTest18.xml" />
+    <Content Include="xml\schemaValidatorTest19.xml" />
+    <Content Include="xml\schemaValidatorTest2.xml" />
+    <Content Include="xml\schemaValidatorTest20.xml" />
+    <Content Include="xml\schemaValidatorTest21.xml" />
+    <Content Include="xml\schemaValidatorTest22.xml" />
+    <Content Include="xml\schemaValidatorTest23.xml" />
+    <Content Include="xml\schemaValidatorTest24.xml" />
+    <Content Include="xml\schemaValidatorTest25.xml" />
+    <Content Include="xml\schemaValidatorTest26.xml" />
+    <Content Include="xml\schemaValidatorTest27.xml" />
+    <Content Include="xml\schemaValidatorTest28.xml" />
+    <Content Include="xml\schemaValidatorTest29.xml" />
+    <Content Include="xml\schemaValidatorTest3.xml" />
+    <Content Include="xml\schemaValidatorTest4.xml" />
+    <Content Include="xml\schemaValidatorTest5.xml" />
+    <Content Include="xml\schemaValidatorTest6.xml" />
+    <Content Include="xml\schemaValidatorTest7.xml" />
+    <Content Include="xml\schemaValidatorTest8.xml" />
+    <Content Include="xml\schemaValidatorTest9.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

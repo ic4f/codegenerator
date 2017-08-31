@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- this schema file tests the main combinations of optional and mandatory elements and sets of elements -->
+
+<application 
+	name="schemaloadertest1" revised="8/3/2006"
+	xmlns="codegenschema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="myschema file:schema.xsd">
+
+	<namespace>
+		<name>Namespace1</name>
+						
+		<class>
+			<name>Class1</name>
+			<type>record</type>		
+				
+			<table>
+				<name>Table1</name>	
+				<external>true</external>			
+				<field>	
+					<name>Field1</name>			
+					<sqldatatype>int</sqldatatype>							
+				</field>
+				<field>	
+					<name>Field2</name>			
+					<sqldatatype>int</sqldatatype>		
+					<identity>true</identity>					
+				</field>		
+				<field>	
+					<name>Field3</name>			
+					<sqldatatype>int</sqldatatype>		
+					<primarykey>true</primarykey>					
+				</field>	
+				<field>	
+					<name>Field4</name>			
+					<sqldatatype>int</sqldatatype>		
+					<foreignkey>Table2(Field1)</foreignkey>					
+				</field>
+				<field>	
+					<name>Field5</name>			
+					<sqldatatype>int</sqldatatype>						
+					<unique>true</unique>				
+				</field>
+				<field>	
+					<name>Field6</name>			
+					<sqldatatype>int</sqldatatype>		
+					<encrypted>true</encrypted>				
+				</field>
+				<field>	
+					<name>Field7</name>			
+					<sqldatatype>int</sqldatatype>		
+					<display>field 7</display>					
+				</field>
+				<field>	
+					<name>Field8</name>			
+					<sqldatatype>int</sqldatatype>							
+					<excludefromtable>true</excludefromtable>				
+				</field>
+				<field>	
+					<name>Field9</name>			
+					<sqldatatype>int</sqldatatype>							
+					<includewithparenttable>true</includewithparenttable>			
+				</field>
+				<field>	
+					<name>Field10</name>			
+					<sqldatatype>DateTime</sqldatatype>						
+					<readonlytype>created</readonlytype>
+				</field>								
+			</table>
+		</class>
+
+		<class>
+			<name>Class2</name>
+			<type>record</type>		
+				
+			<table>
+				<name>Table2</name>		
+				<field>	
+					<name>Field1</name>			
+					<primarykey>true</primarykey>
+					<sqldatatype>int</sqldatatype>							
+				</field>			
+				<additionalfield>
+					<name>Field2</name>	
+					<sqldatatype>int</sqldatatype>		
+					<sql>some sql 1</sql>		
+					<sortexpression>field2 asc</sortexpression>		
+				</additionalfield>			
+				<additionalfield>
+					<name>Field3</name>	
+					<sqldatatype>int</sqldatatype>		
+					<sql>some sql 2</sql>		
+					<sortexpression>field3 asc</sortexpression>		
+					<display>field 3</display>		
+				</additionalfield>		
+				<additionalfield>
+					<name>Field4</name>	
+					<sqldatatype>int</sqldatatype>		
+					<sql>some sql 3</sql>		
+					<sortexpression>field4 asc</sortexpression>		
+					<excludefromtable>true</excludefromtable>		
+				</additionalfield>		
+				<additionalfield>
+					<name>Field5</name>	
+					<sqldatatype>int</sqldatatype>		
+					<sql>some sql 4</sql>		
+					<sortexpression>field5 asc</sortexpression>		
+					<includewithparenttable>true</includewithparenttable>		
+				</additionalfield>											
+			</table>
+
+			<additionalsproc>
+				<name>sproc1</name>
+				<returntype>int</returntype>
+			</additionalsproc>
+			
+			<additionalsproc>
+				<name>sproc2</name>
+				<param>
+					<name>p1</name>
+					<csdatatype>string</csdatatype>
+				</param>
+				<param>
+					<name>p2</name>
+					<csdatatype>int</csdatatype>
+					<encrypted>true</encrypted>				
+				</param>				
+				<returntype>void</returntype>
+			</additionalsproc>
+			
+			<additionalsproc>
+				<name>sproc3</name>
+				<returntype>generate</returntype>
+				<returnfield>Field1</returnfield>
+				<returnfield>Field2</returnfield>				
+			</additionalsproc>			
+
+			<additionalsproc>
+				<name>sproc4</name>
+				<returntype>generate</returntype>
+				<returnfield>Field1</returnfield>
+				<additionalreturnfield>
+					<name>Addfield1</name>
+					<csdatatype>int</csdatatype>
+					<sortexpression>field1</sortexpression>					
+				</additionalreturnfield>
+			</additionalsproc>	
+			
+			<additionalsproc>
+				<name>sproc5</name>
+				<returntype>generate</returntype>
+				<additionalreturnfield>
+					<name>Addfield1</name>
+					<csdatatype>string</csdatatype>
+					<sortexpression>field1</sortexpression>					
+					<display>field 1</display>		
+				</additionalreturnfield>
+			</additionalsproc>	
+						
+		</class>		
+
+	</namespace>	
+	
+	<namespace>
+		<name>Namespace2</name>
+		
+		<class>
+			<name>Class3</name>
+			<type>record</type>		
+			<table>
+				<name>Table3</name>		
+				<field>	
+					<name>Field1</name>			
+					<sqldatatype>int</sqldatatype>							
+				</field>
+			</table>			
+		</class>		
+		
+	</namespace>
+	
+</application>

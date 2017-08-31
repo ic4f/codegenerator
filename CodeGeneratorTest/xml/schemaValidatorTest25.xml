@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!-- test invalid sproc format: scalar return type + 1 return field + 1 addreturn field -->
+<application 
+	name="schemaloadertest1" revised="8/3/2006"
+	xmlns="codegenschema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="myschema file:schema.xsd">
+
+	<namespace>
+		<name>Namespace1</name>						
+		<class>
+			<name>Class1</name>
+			<type>record</type>					
+			<table>
+				<name>Table1</name>	
+				<field>	
+					<name>Field1</name>			
+					<sqldatatype>int</sqldatatype>				
+				</field>				
+				<field>	
+					<name>Field2</name>			
+					<sqldatatype>int</sqldatatype>				
+				</field>															
+			</table>
+			<additionalsproc>
+				<name>Sproc1</name>
+				<returntype>int</returntype>
+				<returnfield>Field1</returnfield>		
+				<returnfield>
+					<name>Addfield1</name>
+					<csdatatype>int</csdatatype>
+					<sortexpression>field1</sortexpression>					
+				</returnfield>
+			</additionalsproc>			
+		</class>		
+	</namespace>	
+
+</application>
