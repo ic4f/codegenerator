@@ -1,64 +1,64 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-                  
-<application 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<application
 	name="uni6" revised="6/25/2006"
 	xmlns="codegenschema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="myschema file:schema.xsd">
 
-	<namespace>
-		<name>Data</name>
-				
-		<class>
-			<name>User</name>
-			<type>record</type>			
-			<table>
-				<name>a_User</name>				
-				<field>
-					<name>Id</name>
-					<datatype>int</datatype>
-					<identity>true</identity>
-					<pkey>true</pkey>
-				</field>
-				<field>
-					<name>CatName</name>
-					<datatype>varchar(50)</datatype>
-					<fkey>a_Cat(Name)</fkey>
-				</field>	
-				<field>
-					<name>DogName</name>
-					<datatype>varchar(50)</datatype>
-					<fkey>a_Dog(Name)</fkey>
-				</field>	
-			</table>	
-		</class>		
-		
-		<class>
-			<name>Cat</name>
-			<type>record</type>			
-			<table>
-				<name>a_Cat</name>				
-				<field>
-					<name>Name</name>
-					<datatype>varchar(50)</datatype>
-					<pkey>true</pkey>
-				</field>
-			</table>	
-		</class>		
-		
-		<class>
-			<name>Dog</name>
-			<type>record</type>			
-			<table>
-				<name>a_Dog</name>				
-				<field>
-					<name>Name</name>
-					<datatype>varchar(50)</datatype>
-					<unique>true</unique>
-				</field>	
-			</table>	
-		</class>						
-			
-	</namespace>
-	
+  <namespace>
+    <name>Data</name>
+
+    <class>
+      <name>User</name>
+      <type>record</type>
+      <table>
+        <name>a_User</name>
+        <field>
+          <name>Id</name>
+          <datatype>int</datatype>
+          <identity>true</identity>
+          <pkey>true</pkey>
+        </field>
+        <field>
+          <name>CatName</name>
+          <datatype>varchar(50)</datatype>
+          <fkey>a_Cat(Name)</fkey>
+        </field>
+        <field>
+          <name>DogName</name>
+          <datatype>varchar(50)</datatype>
+          <fkey>a_Dog(Name)</fkey>
+        </field>
+      </table>
+    </class>
+
+    <class>
+      <name>Cat</name>
+      <type>record</type>
+      <table>
+        <name>a_Cat</name>
+        <field>
+          <name>Name</name>
+          <datatype>varchar(50)</datatype>
+          <pkey>true</pkey>
+        </field>
+      </table>
+    </class>
+
+    <class>
+      <name>Dog</name>
+      <type>record</type>
+      <table>
+        <name>a_Dog</name>
+        <field>
+          <name>Name</name>
+          <datatype>varchar(50)</datatype>
+          <unique>true</unique>
+        </field>
+      </table>
+    </class>
+
+  </namespace>
+
 </application>

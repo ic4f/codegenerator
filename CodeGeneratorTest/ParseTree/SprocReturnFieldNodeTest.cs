@@ -7,14 +7,14 @@ using t = CodeGenerator.ParseTree;
 
 namespace CodeGeneratorTest.ParseTree
 {
-	[TestFixture]
-	public class SprocReturnFieldNodeTest : BaseTest
-	{
-		[Test]
-		public void TestProperties()
-		{
-			t.SprocReturnFieldNode n = new CodeGenerator.ParseTree.SprocReturnFieldNode("a");
-			Assert.AreEqual("a", n.Name);
-		}
-	}
+    [TestFixture]
+    public class SprocReturnFieldNodeTest : BaseTest
+    {
+        [Test]
+        public void TestProperties()
+        {
+            t.SprocReturnFieldNode n = new CodeGenerator.ParseTree.SprocReturnFieldNode("a");
+            Assert.AreEqual("a", n.Name);
+        }
+    }
 }

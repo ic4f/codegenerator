@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<!-- expected set fields for class1: id, class2id, class3id, B, class2_A, class3_A -->                  
-<!-- expected set fields for class2: id, A, B -->  
-<!-- expected set fields for class3: id, A, B --> 
-<!-- expected instance fields for class1: id, class2id, class3id, A, B, class2_A, class3_A -->  
-<!-- expected instance fields for class2: id, A, B -->  
-<!-- expected instance fields for class3: id, A, B -->  
+<!-- expected set fields for class1: id, class2id, class3id, B, class2_A, class3_A -->
+<!-- expected set fields for class2: id, A, B -->
+<!-- expected set fields for class3: id, A, B -->
+<!-- expected instance fields for class1: id, class2id, class3id, A, B, class2_A, class3_A -->
+<!-- expected instance fields for class2: id, A, B -->
+<!-- expected instance fields for class3: id, A, B -->
 <!-- expected nonlink ref classes for class2: class1 -->
 <!-- expected link ref classes for class2: class2class3link -->
 <!-- expected nonlink ref classes for class3: class1 -->
@@ -32,127 +32,127 @@ Class2Class3Link
 	Class3Id
 
 -->
-<application 
+<application
 	name="uni6" revised="6/25/2006"
 	xmlns="codegenschema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="myschema file:schema.xsd">
 
-	<namespace>
-		<name>Data</name>
-				
-		<class>
-			<name>Class1</name>
-			<type>record</type>			
-			<table>
-				<name>Class1Table</name>				
-				<field>
-					<name>Id</name>
-					<sqldatatype>int</sqldatatype>
-					<identity>true</identity>
-					<primarykey>true</primarykey>
-				</field>	
-				<field>
-					<name>Class2Id</name>
-					<sqldatatype>int</sqldatatype>
-					<foreignkey>
-						<reftable>Class2Table</reftable>
-						<reffield>Id</reffield>
-					</foreignkey>
-				</field>				
-				<field>
-					<name>Class3Id</name>
-					<sqldatatype>int</sqldatatype>
-					<foreignkey>
-						<reftable>Class3Table</reftable>
-						<reffield>Id</reffield>
-					</foreignkey>
-				</field>
-				<field>
-					<name>A</name>
-					<sqldatatype>int</sqldatatype>
-					<excludefromtable>true</excludefromtable>
-				</field>		
-				<additionalfield>
-					<name>B</name>
-					<sqldatatype>int</sqldatatype>
-					<sql>a</sql>
-					<sortexpression>b</sortexpression>
-				</additionalfield>								
-			</table>
-		</class>	
-		
-		<class>
-			<name>Class2</name>
-			<type>record</type>			
-			<table>
-				<name>Class2Table</name>				
-				<field>
-					<name>Id</name>
-					<sqldatatype>int</sqldatatype>
-					<identity>true</identity>
-					<primarykey>true</primarykey>
-				</field>	
-				<field>
-					<name>A</name>
-					<sqldatatype>int</sqldatatype>
-					<includewithparenttable>true</includewithparenttable>					
-				</field>		
-				<field>
-					<name>B</name>
-					<sqldatatype>int</sqldatatype>			
-				</field>
-			</table>
-		</class>	
-		
-		<class>
-			<name>Class3</name>
-			<type>record</type>			
-			<table>
-				<name>Class3Table</name>				
-				<field>
-					<name>Id</name>
-					<sqldatatype>int</sqldatatype>
-					<identity>true</identity>
-					<primarykey>true</primarykey>
-				</field>	
-				<field>
-					<name>A</name>
-					<sqldatatype>int</sqldatatype>
-					<includewithparenttable>true</includewithparenttable>					
-				</field>		
-				<field>
-					<name>B</name>
-					<sqldatatype>int</sqldatatype>			
-				</field>
-			</table>
-		</class>		
-		
-		<class>
-			<name>Class2Class3Link</name>
-			<type>link</type>			
-			<table>
-				<name>Class2Class3LinkTable</name>				
-				<field>
-					<name>Class2Id</name>
-					<primarykey>true</primarykey>
-					<sqldatatype>int</sqldatatype>					
-					<foreignkey>
-						<reftable>Class2Table</reftable>
-						<reffield>Id</reffield>
-					</foreignkey>
-				</field>				
-				<field>
-					<name>Class3Id</name>
-					<primarykey>true</primarykey>
-					<sqldatatype>int</sqldatatype>
-					<foreignkey>
-						<reftable>Class3Table</reftable>
-						<reffield>Id</reffield>
-					</foreignkey>
-				</field>				
-			</table>
-		</class>				
-		
-	</namespace>
+  <namespace>
+    <name>Data</name>
+
+    <class>
+      <name>Class1</name>
+      <type>record</type>
+      <table>
+        <name>Class1Table</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+        </field>
+        <field>
+          <name>Class2Id</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Class2Table</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Class3Id</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Class3Table</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>A</name>
+          <sqldatatype>int</sqldatatype>
+          <excludefromtable>true</excludefromtable>
+        </field>
+        <additionalfield>
+          <name>B</name>
+          <sqldatatype>int</sqldatatype>
+          <sql>a</sql>
+          <sortexpression>b</sortexpression>
+        </additionalfield>
+      </table>
+    </class>
+
+    <class>
+      <name>Class2</name>
+      <type>record</type>
+      <table>
+        <name>Class2Table</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+        </field>
+        <field>
+          <name>A</name>
+          <sqldatatype>int</sqldatatype>
+          <includewithparenttable>true</includewithparenttable>
+        </field>
+        <field>
+          <name>B</name>
+          <sqldatatype>int</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+    <class>
+      <name>Class3</name>
+      <type>record</type>
+      <table>
+        <name>Class3Table</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+        </field>
+        <field>
+          <name>A</name>
+          <sqldatatype>int</sqldatatype>
+          <includewithparenttable>true</includewithparenttable>
+        </field>
+        <field>
+          <name>B</name>
+          <sqldatatype>int</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+    <class>
+      <name>Class2Class3Link</name>
+      <type>link</type>
+      <table>
+        <name>Class2Class3LinkTable</name>
+        <field>
+          <name>Class2Id</name>
+          <primarykey>true</primarykey>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Class2Table</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Class3Id</name>
+          <primarykey>true</primarykey>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Class3Table</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+      </table>
+    </class>
+
+  </namespace>
 </application>
