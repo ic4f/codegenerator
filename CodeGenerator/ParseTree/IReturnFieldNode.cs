@@ -2,8 +2,8 @@ using System;
 
 namespace CodeGenerator.ParseTree
 {
-	public interface ISprocReturnFieldNode : IParseTreeNode
-	{
-		string Name { get; }
-	}
+    public interface ISprocReturnFieldNode : IParseTreeNode
+    {
+        string Name { get; }
+    }
 }
