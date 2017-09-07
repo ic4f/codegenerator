@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<application
+	name="grad" revised="6/25/2006"
+	xmlns="codegenschema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="myschema file:schema.xsd">
+
+  <namespace>
+    <name>Data</name>
+
+    <!-- .......................LineupText...................... -->
+    <class>
+      <name>LineupText</name>
+      <type>record</type>
+      <table>
+        <name>LineupText</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Name</name>
+          <sqldatatype>varchar(100)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Content</name>
+          <sqldatatype>varchar(4000)</sqldatatype>
+        </field>
+        <field>
+          <name>Rank</name>
+          <sqldatatype>int</sqldatatype>
+        </field>
+        <field>
+          <name>Modified</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>modified</readonlytype>
+        </field>
+        <field>
+          <name>ModifiedBy</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................Suspect...................... -->
+    <class>
+      <name>Suspect</name>
+      <type>record</type>
+      <table>
+        <name>Suspect</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>CaseId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Case</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Gender</name>
+          <sqldatatype>char</sqldatatype>
+        </field>
+        <field>
+          <name>RaceId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Race</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>HairId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Hair</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>AgeId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Age</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>WeightId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Weight</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Notes</name>
+          <sqldatatype>varchar(1000)</sqldatatype>
+        </field>
+        <field>
+          <name>Created</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>created</readonlytype>
+        </field>
+        <field>
+          <name>Modified</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>modified</readonlytype>
+        </field>
+        <field>
+          <name>ModifiedBy</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+
+    <!-- .......................Case...................... -->
+    <class>
+      <name>Case</name>
+      <type>record</type>
+      <table>
+        <name>Case</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Number</name>
+          <sqldatatype>varchar(10)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+          <includewithparenttable>true</includewithparenttable>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(1000)</sqldatatype>
+        </field>
+        <field>
+          <name>Created</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>created</readonlytype>
+        </field>
+        <field>
+          <name>Modified</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>modified</readonlytype>
+        </field>
+        <field>
+          <name>ModifiedBy</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+
+    <!-- .......................Race...................... -->
+    <class>
+      <name>Race</name>
+      <type>record</type>
+      <table>
+        <name>Race</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+          <includewithparenttable>true</includewithparenttable>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................Hair...................... -->
+    <class>
+      <name>Hair</name>
+      <type>record</type>
+      <table>
+        <name>Hair</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+          <includewithparenttable>true</includewithparenttable>
+          <display>Color</display>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................Age...................... -->
+    <class>
+      <name>Age</name>
+      <type>record</type>
+      <table>
+        <name>Age</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+          <includewithparenttable>true</includewithparenttable>
+          <display>Range</display>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................Weight...................... -->
+    <class>
+      <name>Weight</name>
+      <type>record</type>
+      <table>
+        <name>Weight</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+          <includewithparenttable>true</includewithparenttable>
+          <display>Range</display>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................Lineup...................... -->
+    <class>
+      <name>Lineup</name>
+      <type>record</type>
+
+      <table>
+        <name>Lineup</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>SuspectId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Suspect</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>SuspectPhotoPosition</name>
+          <sqldatatype>int</sqldatatype>
+        </field>
+        <field>
+          <name>CaseId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Case</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(500)</sqldatatype>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Created</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>created</readonlytype>
+        </field>
+        <field>
+          <name>Modified</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>modified</readonlytype>
+        </field>
+        <field>
+          <name>ModifiedBy</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................Photo...................... -->
+    <class>
+      <name>Photo</name>
+      <type>record</type>
+
+      <additionalsproc>
+        <name>GetByCriteria</name>
+        <returntype>generate</returntype>
+        <param>
+          <name>Query</name>
+          <csdatatype>string</csdatatype>
+        </param>
+        <returnfield>Id</returnfield>
+      </additionalsproc>
+
+      <table>
+        <name>Photo</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>ExternalId</name>
+          <sqldatatype>varchar(20)</sqldatatype>
+          <unique>true</unique>
+        </field>
+        <field>
+          <name>Gender</name>
+          <sqldatatype>char</sqldatatype>
+        </field>
+        <field>
+          <name>RaceId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Race</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>HairId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Hair</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>AgeId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Age</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>WeightId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Weight</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Created</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>created</readonlytype>
+        </field>
+        <field>
+          <name>Modified</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>modified</readonlytype>
+        </field>
+        <field>
+          <name>ModifiedBy</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................LineupPhotoLink...................... -->
+    <class>
+      <name>LineupPhotoLink</name>
+      <type>link</type>
+      <table>
+        <name>LineupPhotoLink</name>
+        <field>
+          <name>LineupId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>Lineup</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>PhotoId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>Photo</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................LineupView...................... -->
+    <class>
+      <name>LineupView</name>
+      <type>record</type>
+
+      <additionalsproc>
+        <name>Finalize</name>
+        <returntype>int</returntype>
+        <param>
+          <name>LineupViewId</name>
+          <csdatatype>int</csdatatype>
+        </param>
+        <param>
+          <name>Relevance</name>
+          <csdatatype>string</csdatatype>
+        </param>
+      </additionalsproc>
+
+      <table>
+        <name>LineupView</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>LineupId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Lineup</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>WitnessFirstName</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+        </field>
+        <field>
+          <name>WitnessLastName</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+        </field>
+        <field>
+          <name>Relevance</name>
+          <sqldatatype>varchar(4000)</sqldatatype>
+          <excludefromtable>false</excludefromtable>
+        </field>
+        <field>
+          <name>Created</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>created</readonlytype>
+        </field>
+        <field>
+          <name>CreatedBy</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+        </field>
+        <field>
+          <name>IsCompleted</name>
+          <sqldatatype>bit</sqldatatype>
+        </field>
+
+        <additionalfield>
+          <name>FullName</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+          <sql>[LineupView].WitnessLastName + ', ' + [LineupView].WitnessFirstName AS LineupView_FullName</sql>
+          <display>Witness Name</display>
+          <sortexpression>WitnessLastName</sortexpression>
+          <includewithparenttable>true</includewithparenttable>
+          <defaultsort>true</defaultsort>
+        </additionalfield>
+
+      </table>
+    </class>
+
+
+    <!-- .......................PhotoView...................... -->
+    <class>
+      <name>PhotoView</name>
+      <type>final</type>
+      <table>
+        <name>PhotoView</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+        </field>
+        <field>
+          <name>LineupViewId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>LineupView</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>PhotoId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Photo</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>SuspectId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>Suspect</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>IsSuspect</name>
+          <sqldatatype>bit</sqldatatype>
+        </field>
+        <field>
+          <name>Result</name>
+          <sqldatatype>varchar(10)</sqldatatype>
+        </field>
+        <field>
+          <name>Certainty</name>
+          <sqldatatype>varchar(1000)</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................User...................... -->
+    <class>
+      <name>User</name>
+      <type>record</type>
+
+      <additionalsproc>
+        <name>ValidateUser</name>
+        <returntype>int</returntype>
+        <param>
+          <name>Login</name>
+          <csdatatype>string</csdatatype>
+        </param>
+        <param>
+          <name>Password</name>
+          <csdatatype>string</csdatatype>
+          <encrypted>true</encrypted>
+        </param>
+      </additionalsproc>
+
+      <additionalsproc>
+        <name>LogUser</name>
+        <returntype>void</returntype>
+        <param>
+          <name>UserId</name>
+          <csdatatype>int</csdatatype>
+        </param>
+      </additionalsproc>
+
+      <table>
+        <name>User</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Login</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+          <unique>true</unique>
+        </field>
+        <field>
+          <name>Password</name>
+          <sqldatatype>varbinary(16)</sqldatatype>
+          <excludefromtable>false</excludefromtable>
+          <encrypted>true</encrypted>
+        </field>
+        <field>
+          <name>FirstName</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+        </field>
+        <field>
+          <name>LastName</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+        </field>
+        <field>
+          <name>Created</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>created</readonlytype>
+        </field>
+        <field>
+          <name>Modified</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>modified</readonlytype>
+        </field>
+        <field>
+          <name>ModifiedBy</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+        </field>
+
+        <additionalfield>
+          <name>FullName</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+          <sql>[User].LastName + ', ' + [User].FirstName AS User_FullName</sql>
+          <display>Full Name</display>
+          <sortexpression>LastName</sortexpression>
+          <includeinlist>true</includeinlist>
+          <includewithparenttable>true</includewithparenttable>
+          <defaultsort>true</defaultsort>
+        </additionalfield>
+
+      </table>
+    </class>
+
+
+    <!-- .......................Role...................... -->
+    <class>
+      <name>Role</name>
+      <type>record</type>
+      <table>
+        <name>Role</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(25)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................Permission...................... -->
+    <class>
+      <name>Permission</name>
+      <type>readonly</type>
+
+      <additionalsproc>
+        <name>GetPermissionCodesByUser</name>
+        <returntype>ArrayList</returntype>
+        <param>
+          <name>UserId</name>
+          <csdatatype>int</csdatatype>
+        </param>
+      </additionalsproc>
+
+      <additionalsproc>
+        <name>GetAllRecordsByPermCatByRole</name>
+        <param>
+          <name>CategoryId</name>
+          <csdatatype>int</csdatatype>
+        </param>
+        <param>
+          <name>RoleId</name>
+          <csdatatype>int</csdatatype>
+        </param>
+        <returntype>generate</returntype>
+        <returnfield>Id</returnfield>
+        <returnfield>Description</returnfield>
+        <returnfield>
+          <name>Selected</name>
+          <csdatatype>bool</csdatatype>
+          <sortexpression>Selected</sortexpression>
+          <display>Selected</display>
+        </returnfield>
+      </additionalsproc>
+
+      <table>
+        <name>Permission</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>CategoryId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>PermissionCategory</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(100)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+          <defaultsort>true</defaultsort>
+        </field>
+        <field>
+          <name>Rank</name>
+          <sqldatatype>smallint</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................PermissionCategory...................... -->
+    <class>
+      <name>PermissionCategory</name>
+      <type>readonly</type>
+
+      <table>
+        <name>PermissionCategory</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+          <defaultsort>true</defaultsort>
+        </field>
+        <field>
+          <name>Description</name>
+          <sqldatatype>varchar(50)</sqldatatype>
+          <unique>true</unique>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>Rank</name>
+          <sqldatatype>smallint</sqldatatype>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................UserRolelink...................... -->
+    <class>
+      <name>UserRoleLink</name>
+      <type>link</type>
+      <table>
+        <name>UserRoleLink</name>
+        <field>
+          <name>UserId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>User</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>RoleId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>Role</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................RolePermissionLink...................... -->
+    <class>
+      <name>RolePermissionLink</name>
+      <type>link</type>
+      <table>
+        <name>RolePermissionLink</name>
+        <field>
+          <name>RoleId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>Role</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>PermissionId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>Permission</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................UserCaseLink...................... -->
+    <class>
+      <name>UserCaseLink</name>
+      <type>link</type>
+      <table>
+        <name>UserCaseLink</name>
+        <field>
+          <name>UserId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>User</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>CaseId</name>
+          <sqldatatype>int</sqldatatype>
+          <primarykey>true</primarykey>
+          <foreignkey>
+            <reftable>Case</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+      </table>
+    </class>
+
+
+    <!-- .......................UserLog...................... -->
+    <class>
+      <name>UserLog</name>
+      <type>final</type>
+
+      <table>
+        <name>UserLog</name>
+        <field>
+          <name>Id</name>
+          <sqldatatype>int</sqldatatype>
+          <identity>true</identity>
+          <primarykey>true</primarykey>
+          <includeinlist>true</includeinlist>
+        </field>
+        <field>
+          <name>UserId</name>
+          <sqldatatype>int</sqldatatype>
+          <foreignkey>
+            <reftable>User</reftable>
+            <reffield>Id</reffield>
+          </foreignkey>
+        </field>
+        <field>
+          <name>Created</name>
+          <sqldatatype>datetime</sqldatatype>
+          <readonlytype>created</readonlytype>
+        </field>
+      </table>
+
+    </class>
+
+
+  </namespace>
+</application>
