@@ -1,4 +1,4 @@
-## Object-relational mapper and code generator 
+# Object-relational mapper and code generator 
 
 > **This project is deprecated and not maintained. It exists for historical reasons only.**
 
