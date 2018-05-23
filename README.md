@@ -1,7 +1,22 @@
-This project is deprecated and is not maintained. It exists for historical reasons only.
+## Object-relational mapper and code generator 
 
-This is a code generator that generates most of the data layer code for a data driven application. Essentially, it's an object-relational mapper (ORM). It was written in 2006-2008 and was used to generate C# code for web applications (mostly content management systems) between 2006-2011. 
-It is functional, but the C# code it generates is, of course, outdated.  
+> **This project is deprecated and not maintained. It exists for historical reasons only.**
 
-TODO: add a description
-TODO: add demo: sample app specs + generated code
+* **Language:** C#
+* **Developed:** 2006-2008
+
+This is my thesis project for my Master's in Computer Science. It is an object-relational mapper and
+code generator that generates most of the data layer code for a data driven web application. The
+generated code is SQL + C# or VB.
+
+My thesis is <a href="http:/sergey.cs.uni.edu/static/ms_thesis.pdf">available here</a>.
+
+## What's inside
+* CodeGenerator: code generator files
+* CodeGeneratorTest: unit tests
+* ConsoleApp: main/driver program
+* demo/app_schema: a schema for a sample application
+* demo/generated_code: C# classes and SQL statements generated based on the schema
+
+## License
+[MIT](https://github.com/ic4f/codegenerator/blob/master/LICENSE)
