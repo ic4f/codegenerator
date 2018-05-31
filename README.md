@@ -15,8 +15,12 @@ My thesis is <a href="http:/sergey.cs.uni.edu/static/ms_thesis.pdf">available he
 * CodeGenerator: code generator files
 * CodeGeneratorTest: unit tests
 * ConsoleApp: main/driver program
-* demo/app_schema: a schema for a sample application
+* demo/app_schema: schemas for sample applications*
 * demo/generated_code: C# classes and SQL statements generated based on the schema
+
+*Applications used in the demo are described [here](http://icode4.fun/projects/uni_accounts) and 
+[here](https://github.com/ic4f/oldcode/tree/master/2008-eyewitness-identification) (both have been deprecated and
+are no longer used)
 
 ## License
 [MIT](https://github.com/ic4f/codegenerator/blob/master/LICENSE)
